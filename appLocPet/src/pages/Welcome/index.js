@@ -9,8 +9,10 @@ import {
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Welcome(){
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
             
@@ -27,12 +29,14 @@ export default function Welcome(){
             <Text style={styles.title}> Localize seu Pet em Qualquer lugar!</Text>
             <Text style={styles.text}> Faça Login para começar.</Text>
             
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity 
+            style={styles.button}
+            onPress={ () => navigation.navigate('Signin')}>
                 <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
             </Animatable.View>
             
-        </View>
+        </View> 
     );
 }
 
