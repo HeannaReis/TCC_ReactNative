@@ -16,7 +16,7 @@ export default function SignIn(){
          animation="fadeInLeft"
          delay={500}
          style={styles.containerHeader}>
-            <Text style={styles.message}> Bem vindo porra!! </Text>
+            <Text style={styles.message}> Bem vindo!! </Text>
         </Animatable.View>
 
         <Animatable.View animation="fadeInUp" style={styles.containerForm}>
