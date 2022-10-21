@@ -5,7 +5,6 @@ import {
     StyleSheet,
     Image,
     TouchableOpacity,
-
 } from 'react-native';
 
 import * as Animatable from 'react-native-animatable';
@@ -25,21 +24,26 @@ export default function Welcome(){
             />
             </View>
 
-            <Animatable.View delay={600} animation='fadeInUp' style={styles.containerForm}> 
-            <Text style={styles.title}> Localize seu Pet em Qualquer lugar!</Text>
-            <Text style={styles.text}> Faça Login para começar.</Text>
+            <Animatable.View
+			delay={600}
+			animation='fadeInUp'
+			style={styles.containerForm}> 
+            <Text style={styles.title}> 
+			Localize seu Pet em Qualquer lugar!
+			</Text>
+            <Text style={styles.text}> 
+			Faça Login para começar.
+			</Text>
             
             <TouchableOpacity 
             style={styles.button}
-            onPress={ () => navigation.navigate('Signin')}>
-                <Text style={styles.buttonText}>Acessar</Text>
+            onPress={ () => navigation.navigate('SignIn')}>
+            <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
-            </Animatable.View>
-            
+            </Animatable.View>           
         </View> 
-    );
+    )
 }
-
 const styles = StyleSheet.create({
     container:{
         flex:1,
@@ -83,8 +87,6 @@ const styles = StyleSheet.create({
     buttonText:{
         color: '#FFF',
         fontSize: 18,
-        fontWeight: 'bold'
-      
+        fontWeight: 'bold' 
     }
-
 })
