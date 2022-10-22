@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TextInput,
   TouchableOpacity
-} from 'react-native'
+} from 'react-native';
+import {  Text , CheckBox } from 'react-native-elements';
 
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native'
 
 export default function Register() {
+  const [isSelected, setSelection] = useState(false);
   const navigation = useNavigation()
   return (
     <View style={styles.container}>
@@ -25,22 +26,26 @@ export default function Register() {
       <Animatable.View 
         delay={800}
         animation="fadeInUp" 
-        style={styles.containerForm}>
+        style={styles.containerForm}
+        >
 
         <Text style={styles.title}>Nome completo</Text>
-        <TextInput placeholder="Digite o seu nome..." style={styles.input} />
+        <TextInput placeholder="Digite o seu nome..." style={styles.input}
+         />
 
         <Text style={styles.title}>CPF</Text>
-        <TextInput placeholder="Digite o seu CPF..." style={styles.input} />
+        <TextInput placeholder="Digite o seu CPF..." style={styles.input}
+         />
 
         <Text style={styles.title}>E-mail</Text>
-        <TextInput placeholder="Digite o seu e-maill..." style={styles.input} />
+        <TextInput placeholder="Digite o seu e-maill..." style={styles.input}
+         />
 
         <Text style={styles.title}>Telefone</Text>
         <TextInput
           placeholder="Digite o seu telefone..."
           style={styles.input}
-        />
+          />
 
         <Text style={styles.title}>Senha</Text>
         <TextInput placeholder="Digite a sua senha..." style={styles.input} />
@@ -54,12 +59,19 @@ export default function Register() {
         >
           <Text style={styles.buttomText}>Entrar</Text>
         </TouchableOpacity>
-        {/* <<TouchableOpacity
-          style={styles.buttom}
-          onPress={() => navigation.navigate('SignIn')}
-        >
-          <Text style={styles.buttomText}>Acessar</Text>
-        </TouchableOpacity> */}
+
+        <View style={styles.checkboxContainer}>
+        <CheckBox
+          checkedIcon="check"
+          uncheckedIcon="square-o"
+          checkedColor="#7B68EE"
+          uncheckedColor="#7B68EE"
+          checked={isSelected}
+          onPress={() => setSelection(!isSelected)}
+        />
+        <Text style={styles.registerText}> Aceitar Termos </Text>
+      </View> 
+        
       </Animatable.View>
     </View>
   )
@@ -116,5 +128,17 @@ const styles = StyleSheet.create({
     marginTop: 14,
     alignSelf: 'center'
   },
- 
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  checkbox: {
+    alignSelf: "center",
+  }, 
+  registerText: {
+    color: '#a1a1a1',
+    fontWeight: 'bold',
+    marginTop: 14,
+    textAlign: 'center'
+  }
 })
