@@ -8,16 +8,15 @@ import {
 } from "react-native";
 
 import * as Animatable from 'react-native-animatable' ;
-import Register from "../Register";
 
-export default function SignIn(){
+export default function Register(){
     return(
         <View style={styles.container}>
         <Animatable.View
          animation="fadeInLeft"
          delay={500}
          style={styles.containerHeader}>
-            <Text style={styles.message}> Bem vindo!! </Text>
+            <Text style={styles.message}> Cadastro!! </Text>
         </Animatable.View>
 
         <Animatable.View animation="fadeInUp" style={styles.containerForm}>
@@ -28,11 +27,10 @@ export default function SignIn(){
         <TextInput placeholder="Digite sua senha..." style={styles.input} />
 
         <TouchableOpacity style={styles.buttom}>
-          <Text style={styles.buttomText}>Acessar</Text>
+          <Text style={styles.buttomText}>Cadastrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.buttomRegistrer} 
-          onPress={ () => navigation.navigate('Register')}>
+        <TouchableOpacity style={styles.buttomRegistrer}>
           <Text style={styles.RegisterText}> 
             Não possui uma conta? Cadastre-se
           </Text>
