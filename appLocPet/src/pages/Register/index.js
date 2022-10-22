@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   buttom: {
     backgroundColor: '#000',
     width: '100%',
-    borderRadius: 3,
+    borderRadius: 10,
     paddingVertical: 8,
     marginTop: 34,
     justifyContent: 'center',

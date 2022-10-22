@@ -18,7 +18,7 @@ export default function Welcome(){
             <View style={styles.containerLogo}>
             <Animatable.Image
                 animation='flipInY'
-                source={require('../../assets/logo.png')}
+                source={require('../../assets/logo2.jpeg')}
                 style={{width: '100%' }}
                 resizeMode='contain'
             />
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
     button:{
         position: 'absolute',
-        backgroundColor: '#7B68EE',
+        backgroundColor: '#000',
         borderRadius: 50,
         paddingVertical: 8,
         width: '60%',
