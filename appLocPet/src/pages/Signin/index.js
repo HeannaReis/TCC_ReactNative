@@ -39,7 +39,7 @@ export default function SignIn() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.RegisterText}
+          style={styles.registerText}
           onPress={() => navigation.navigate('Register')}
         >
           <Text style={styles.registerText}>

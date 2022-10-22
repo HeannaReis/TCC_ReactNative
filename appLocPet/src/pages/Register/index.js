@@ -20,7 +20,7 @@ export default function Register() {
         delay={500}
         style={styles.containerHeader}
       >
-        <Text style={styles.message}>Cadastre-se</Text>
+        <Text style={styles.message}>Cadastro</Text>
       </Animatable.View>
 
       <Animatable.View 
@@ -69,7 +69,11 @@ export default function Register() {
           checked={isSelected}
           onPress={() => setSelection(!isSelected)}
         />
-        <Text style={styles.registerText}> Aceitar Termos </Text>
+        <Text
+         style={styles.registerText}> 
+         Concordar com termos de uso.
+         </Text>
+         
       </View> 
         
       </Animatable.View>
@@ -88,6 +92,7 @@ const styles = StyleSheet.create({
     paddingStart: '5%'
   },
   message: {
+    alignItems: 'center',
     fontSize: 28,
     fontWeight: 'bold',
     color: '#fff'
@@ -115,7 +120,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 3,
     paddingVertical: 8,
-    marginTop: 14,
+    marginTop: 34,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -130,15 +135,13 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: {
     flexDirection: "row",
-    marginBottom: 20,
+    marginTop: 14,
+    marginBottom: 20
   },
-  checkbox: {
-    alignSelf: "center",
-  }, 
-  registerText: {
+   registerText: {
     color: '#a1a1a1',
     fontWeight: 'bold',
     marginTop: 14,
     textAlign: 'center'
-  }
-})
+  },
+ })
