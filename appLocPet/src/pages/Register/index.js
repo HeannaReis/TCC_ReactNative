@@ -1,43 +1,68 @@
-import React from "react";
+import React from 'react'
 import {
-  View, 
+  View,
   Text,
   StyleSheet,
   TextInput,
   TouchableOpacity
-} from "react-native";
+} from 'react-native'
 
-import * as Animatable from 'react-native-animatable' ;
+import * as Animatable from 'react-native-animatable'
+import { useNavigation } from '@react-navigation/native'
 
-export default function Register(){
-    return(
-        <View style={styles.container}>
-        <Animatable.View
-         animation="fadeInLeft"
-         delay={500}
-         style={styles.containerHeader}>
-            <Text style={styles.message}> Cadastro!! </Text>
-        </Animatable.View>
+export default function Register() {
+  const navigation = useNavigation()
+  return (
+    <View style={styles.container}>
+      <Animatable.View
+        animation="fadeInLeft"
+        delay={500}
+        style={styles.containerHeader}
+      >
+        <Text style={styles.message}>Cadastre-se</Text>
+      </Animatable.View>
 
-        <Animatable.View animation="fadeInUp" style={styles.containerForm}>
-        <Text style={styles.title}>Email</Text>
-        <TextInput placeholder="Digite um email..." style={styles.input} />
+      <Animatable.View 
+        delay={800}
+        animation="fadeInUp" 
+        style={styles.containerForm}>
+
+        <Text style={styles.title}>Nome completo</Text>
+        <TextInput placeholder="Digite o seu nome..." style={styles.input} />
+
+        <Text style={styles.title}>CPF</Text>
+        <TextInput placeholder="Digite o seu CPF..." style={styles.input} />
+
+        <Text style={styles.title}>E-mail</Text>
+        <TextInput placeholder="Digite o seu e-maill..." style={styles.input} />
+
+        <Text style={styles.title}>Telefone</Text>
+        <TextInput
+          placeholder="Digite o seu telefone..."
+          style={styles.input}
+        />
 
         <Text style={styles.title}>Senha</Text>
-        <TextInput placeholder="Digite sua senha..." style={styles.input} />
+        <TextInput placeholder="Digite a sua senha..." style={styles.input} />
 
-        <TouchableOpacity style={styles.buttom}>
-          <Text style={styles.buttomText}>Cadastrar</Text>
-        </TouchableOpacity>
+        <Text style={styles.title}>Confirmar senha</Text>
+        <TextInput placeholder="Digite a sua senha" style={styles.input} />
 
-        <TouchableOpacity style={styles.buttomRegistrer}>
-          <Text style={styles.RegisterText}> 
-            Não possui uma conta? Cadastre-se
-          </Text>
+        <TouchableOpacity
+          style={styles.buttom}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Text style={styles.buttomText}>Entrar</Text>
         </TouchableOpacity>
+        {/* <<TouchableOpacity
+          style={styles.buttom}
+          onPress={() => navigation.navigate('SignIn')}
+        >
+          <Text style={styles.buttomText}>Acessar</Text>
+        </TouchableOpacity> */}
       </Animatable.View>
-        </View>
-    );
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -46,8 +71,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#7B68EE'
   },
   containerHeader: {
-    marginTop: '14%',
-    marginBottom: '8%',
+    marginTop: '0%',
+    marginBottom: '5%',
     paddingStart: '5%'
   },
   message: {
@@ -65,16 +90,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginTop: 28
+    marginTop: 15
   },
   input: {
     borderBottomWidth: 1,
     height: 40,
-    marginBottom: 12,
+    marginBottom: -10,
     fontSize: 16
   },
   buttom: {
-    backgroundColor: '#7B68EE',
+    backgroundColor: '#000',
     width: '100%',
     borderRadius: 3,
     paddingVertical: 8,
@@ -91,7 +116,5 @@ const styles = StyleSheet.create({
     marginTop: 14,
     alignSelf: 'center'
   },
-  RegisterText: {
-    color: '#a1a1a1'
-  }
+ 
 })
