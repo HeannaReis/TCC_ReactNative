@@ -1,76 +1,50 @@
-import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import * as Animatable from 'react-native-animatable'
-import { useNavigation } from '@react-navigation/native'
+import MapView from 'react-native-maps';
 
-export default function Home() {
-  const navigation = useNavigation()
+import * as Location from 'expo-location';
 
+const App = () => {
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
   return (
     <View style={styles.container}>
-      <Animatable.View
-        delay={600}
-        animation="fadeInUp"
-        style={styles.containerForm}
-      >
-        {/* <Text style={styles.title}>Lorem ipsum lorem ipsum lorem ipsum</Text>
-        <Text style={styles.text}>Faça o login para começar</Text> */}
-
-        <TouchableOpacity
-          style={styles.buttom}
-          onPress={() => navigation.navigate('')}
-        ></TouchableOpacity>
-      </Animatable.View>
+      <Text>Maps</Text>
+      <MapView style={styles.map}
+      initialRegion={{
+       latitude: -23.62348364204039,
+       longitude: -46.74943498729773,
+       latitudeDelta: 0.0122,
+       longitudeDelta: 0.0021
+      }}      
+      />
     </View>
-  )
-}
-
-const styles = StyleSheet.create({
+  );
+};
+const styles = StyleSheet.create ({
   container: {
     flex: 1,
-    backgroundColor: '#7B68EE',
-    marginTop: '0%',
+    marginTop: 10,
+    marginStart: 25,
   },
-  // containerLogo: {
-  //   flex: 1,
-  //   backgroundColor: '#7B68EE',
-  //   justifyContent: 'center',
-  //   alignItems: 'center'
-  // },
-  containerForm: {
-    flex: 1,
-    backgroundColor: '#FFF',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 28,
-    paddingStart: '5%',
-    paddingEnd: '5%'
+  map: {
+    flex: 1
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 28,
-    marginBottom: 12
-  },
-  text: {
-    color: '#a1a1a1',
-    fontSize: 15,
-    fontWeight: 'bold'
-  },
-  // buttom: {
-  //   position: 'absolute',
-  //   backgroundColor: '#000',
-  //   borderRadius: 50,
-  //   paddingVertical: 8,
-  //   width: '60%',
-  //   alignSelf: 'center',
-  //   bottom: '15%',
-  //   alignItems: 'center',
-  //   justifyContent: 'center'
-  // },
-  buttomText: {
-    fontSize: 18,
-    color: '#fff',
-    fontWeight: 'bold'
-  }
-})
+});
+
+export default App;
