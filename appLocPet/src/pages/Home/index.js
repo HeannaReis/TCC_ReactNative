@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import MapView, { Marker}from 'react-native-maps';
+import MapView, { Marker} from 'react-native-maps';
 
 import * as Location from 'expo-location';
 
@@ -32,8 +32,11 @@ const App = () => {
        latitudeDelta: 0.0122,
        longitudeDelta: 0.0021
       }}      
-      
-      />
+      showUserLocation
+      mapaType="terrain"
+      >
+       
+        </MapView>
     </View>
   );
 };
