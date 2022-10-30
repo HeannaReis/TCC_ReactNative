@@ -6,6 +6,9 @@ import SignIn from '../pages/SignIn'
 import Register from '../pages/Register'
 import Home from '../pages/Home'
 import Maps from '../pages/Maps'
+import Sighted from '../pages/Sighted';
+import Search from '../pages/Search/Search';
+import Settings from '../pages/Settings/Settings';
 
 const Tab = createBottomTabNavigator()
 
@@ -13,13 +16,13 @@ function MyTabs() {
     return (
         <Tab.Navigator>
 
-            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Avistados" component={Sighted} />
 
-            <Tab.Screen name="Login" component={SignIn} />
+            <Tab.Screen name="Search" component={Search} />
 
-            <Tab.Screen name="Cadastro" component={Register} />
+            <Tab.Screen name="Maps" component={Maps} />            
 
-            <Tab.Screen name="Mapas" component={Maps} />
+            <Tab.Screen name="Opções" component={Settings} />
 
         </Tab.Navigator>
     )
